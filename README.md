@@ -208,11 +208,11 @@ To run this project on an EC2 instance and ensure GitHub Actions works correctly
 
 ### Variables in GitHub Actions
 
-For the GitHub Actions workflow to work correctly, you must set the following variables in your repository's secrets:
+For the GitHub Actions workflow to work correctly, you must set the following secrets in your repository (Settings → Secrets and variables → Actions):
 
-1. **AWS_ACCESS_ID**: Your AWS access key ID.
-2. **AWS_ACCESS_KEY**: Your AWS secret access key.
-3. **EC2_INSTANCE**: The public IP address or DNS name of your EC2 instance.
+1. **EC2_SSH_PRIVATE_KEY**: The full contents of your EC2 SSH private key (`.pem` file).
+2. **EC2_INSTANCE**: The public IP address or DNS name of your EC2 instance.
+3. **EC2_USER**: The SSH username for your instance (e.g. `ec2-user` on Amazon Linux, `ubuntu` on Ubuntu).
 ### ⚠️ IMPORTANT: Development Workflow
 
 **Before creating a Pull Request, you should make sure that everything works correctly in your fork:**
@@ -223,7 +223,7 @@ For the GitHub Actions workflow to work correctly, you must set the following va
    - Make all changes and development in your personal repository
 
 2. **Set your own environment variables**
-   - Configure GitHub Secrets on your fork for your AWS credentials
+   - Configure GitHub Secrets on your fork for EC2 deployment (`EC2_SSH_PRIVATE_KEY`, `EC2_INSTANCE`, `EC2_USER`)
    - Make sure your CI/CD pipeline works with your own variables
    - Fully test the deployment in your personal environment
 
@@ -465,11 +465,11 @@ Para ejecutar este proyecto en una instancia EC2 y asegurarte de que GitHub Acti
 
 ### Variables en GitHub Actions
 
-Para que el flujo de trabajo de GitHub Actions funcione correctamente, debes configurar las siguientes variables en los secretos de tu repositorio:
+Para que el flujo de trabajo de GitHub Actions funcione correctamente, debes configurar los siguientes secretos en tu repositorio (Settings → Secrets and variables → Actions):
 
-1. **AWS_ACCESS_ID**: Tu ID de clave de acceso de AWS.
-2. **AWS_ACCESS_KEY**: Tu clave de acceso secreta de AWS.
-3. **EC2_INSTANCE**: La dirección IP pública o el nombre DNS de tu instancia EC2.
+1. **EC2_SSH_PRIVATE_KEY**: Contenido completo de la clave privada SSH de EC2 (archivo `.pem`).
+2. **EC2_INSTANCE**: La dirección IP pública o el nombre DNS de tu instancia EC2.
+3. **EC2_USER**: Usuario SSH de la instancia (p. ej. `ec2-user` en Amazon Linux, `ubuntu` en Ubuntu).
 ### ⚠️ IMPORTANTE: Flujo de Trabajo para el Desarrollo
 
 **Antes de crear un Pull Request, debes asegurarte de que todo funcione correctamente en tu fork:**
@@ -480,7 +480,7 @@ Para que el flujo de trabajo de GitHub Actions funcione correctamente, debes con
    - Realiza todos los cambios y desarrollo en tu repositorio personal
 
 2. **Configura tus propias variables de entorno**
-   - Configura los GitHub Secrets en tu fork para tus credenciales de AWS
+   - Configura los GitHub Secrets en tu fork para el despliegue en EC2 (`EC2_SSH_PRIVATE_KEY`, `EC2_INSTANCE`, `EC2_USER`)
    - Asegúrate de que tu pipeline de CI/CD funcione con tus propias variables
    - Prueba completamente el despliegue en tu entorno personal
 
