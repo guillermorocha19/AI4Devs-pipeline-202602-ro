@@ -91,8 +91,8 @@ Para ejecutar este proyecto en una instancia EC2 y asegurarte de que GitHub Acti
 
 ### Variables en GitHub Actions
 
-Para que el flujo de trabajo de GitHub Actions funcione correctamente, debes configurar las siguientes variables en los secretos de tu repositorio:
+Para que el flujo de trabajo de GitHub Actions funcione correctamente, debes configurar los siguientes secretos en tu repositorio (Settings → Secrets and variables → Actions):
 
-1. **AWS_ACCESS_ID**: Tu ID de clave de acceso de AWS.
-2. **AWS_ACCESS_KEY**: Tu clave de acceso secreta de AWS.
-3. **EC2_INSTANCE**: La dirección IP pública o el nombre DNS de tu instancia EC2.
+1. **EC2_SSH_PRIVATE_KEY**: Contenido completo de la clave privada SSH de EC2 (archivo `.pem`).
+2. **EC2_INSTANCE**: La dirección IP pública o el nombre DNS de tu instancia EC2.
+3. **EC2_USER**: Usuario SSH de la instancia (p. ej. `ec2-user` en Amazon Linux, `ubuntu` en Ubuntu).
